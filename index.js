@@ -29,10 +29,6 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "get":
       const contact = await getContactById(id);
       console.log(contact);
-      if (!contact) {
-        throw new Error(`Couldn't find contact with id ${id}`);
-      }
-
       break;
 
     case "add":
@@ -43,9 +39,6 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "remove":
       const deletedContact = await removeContact(id);
       console.log(deletedContact);
-      if (!deletedContact) {
-        throw new Error(`Couldn't find contact with id ${id}`);
-      }
       break;
 
     default:
